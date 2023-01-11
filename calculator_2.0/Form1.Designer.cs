@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.RightPanel = new System.Windows.Forms.Panel();
-            this.LeftPanel = new System.Windows.Forms.Panel();
             this.CenterPanel = new System.Windows.Forms.Panel();
+            this.Result = new System.Windows.Forms.TextBox();
             this.NineKey = new System.Windows.Forms.Button();
             this.RemoveKey = new System.Windows.Forms.Button();
             this.ClearKey = new System.Windows.Forms.Button();
@@ -52,27 +51,10 @@
             this.CenterPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // RightPanel
-            // 
-            this.RightPanel.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.RightPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.RightPanel.Location = new System.Drawing.Point(804, 0);
-            this.RightPanel.Name = "RightPanel";
-            this.RightPanel.Size = new System.Drawing.Size(272, 540);
-            this.RightPanel.TabIndex = 0;
-            // 
-            // LeftPanel
-            // 
-            this.LeftPanel.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LeftPanel.Location = new System.Drawing.Point(0, 0);
-            this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(260, 540);
-            this.LeftPanel.TabIndex = 1;
-            // 
             // CenterPanel
             // 
             this.CenterPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CenterPanel.Controls.Add(this.Result);
             this.CenterPanel.Controls.Add(this.NineKey);
             this.CenterPanel.Controls.Add(this.RemoveKey);
             this.CenterPanel.Controls.Add(this.ClearKey);
@@ -92,10 +74,20 @@
             this.CenterPanel.Controls.Add(this.OneKey_Click);
             this.CenterPanel.Controls.Add(this.NullKey);
             this.CenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CenterPanel.Location = new System.Drawing.Point(260, 0);
+            this.CenterPanel.Location = new System.Drawing.Point(0, 0);
             this.CenterPanel.Name = "CenterPanel";
-            this.CenterPanel.Size = new System.Drawing.Size(544, 540);
+            this.CenterPanel.Size = new System.Drawing.Size(523, 540);
             this.CenterPanel.TabIndex = 2;
+            // 
+            // Result
+            // 
+            this.Result.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Result.Location = new System.Drawing.Point(50, 68);
+            this.Result.Multiline = true;
+            this.Result.Name = "Result";
+            this.Result.Size = new System.Drawing.Size(419, 131);
+            this.Result.TabIndex = 18;
+            this.Result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // NineKey
             // 
@@ -117,6 +109,7 @@
             this.RemoveKey.TabIndex = 16;
             this.RemoveKey.Text = "⌫";
             this.RemoveKey.UseVisualStyleBackColor = true;
+            this.RemoveKey.Click += new System.EventHandler(this.RemoveKey_Click);
             // 
             // ClearKey
             // 
@@ -127,6 +120,7 @@
             this.ClearKey.TabIndex = 15;
             this.ClearKey.Text = "C";
             this.ClearKey.UseVisualStyleBackColor = true;
+            this.ClearKey.Click += new System.EventHandler(this.ClearKey_Click);
             // 
             // SixKey
             // 
@@ -297,21 +291,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 540);
+            this.ClientSize = new System.Drawing.Size(523, 540);
             this.Controls.Add(this.CenterPanel);
-            this.Controls.Add(this.LeftPanel);
-            this.Controls.Add(this.RightPanel);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Простой калькулятор";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.CenterPanel.ResumeLayout(false);
+            this.CenterPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Panel RightPanel;
-        private Panel LeftPanel;
         private Panel CenterPanel;
         private Button NineKey;
         private Button RemoveKey;
@@ -331,5 +322,6 @@
         private Button TwoKey;
         private Button OneKey_Click;
         private Button NullKey;
+        private TextBox Result;
     }
 }
